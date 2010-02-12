@@ -1,16 +1,19 @@
-%define upstream_name       Perl6-Slurp
-%define upstream_version    0.03
+%define upstream_name    Perl6-Slurp
+%define upstream_version 0.03
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
-Summary:     Implements the Perl 6 'slurp' built-in
+Release:    %mkrel 2
+
+Summary:    Implements the Perl 6 'slurp' built-in
 License:    Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
-Patch:      Perl6-Slurp-0.03-fix-tests.patch
-BuildRequires:	perl-Perl6-Export
+Source0:    http://www.cpan.org/modules/by-module/Perl6/Perl6-Slurp-%{upstream_version}.tar.gz
+Patch0:     Perl6-Slurp-0.03-fix-tests.patch
+
+BuildRequires:	perl(Perl6::Export)
+
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
@@ -18,8 +21,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 This package implements the Perl 6 'slurp' built-in.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
-%patch -p 1
+%setup -q -n %{upstream_name}-%{upstream_version}
+%patch0 -p 1
 
 %build
 yes y | %{__perl} Makefile.PL INSTALLDIRS=vendor
