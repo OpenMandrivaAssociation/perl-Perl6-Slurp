@@ -8,7 +8,7 @@ Release:	5
 Summary:	Implements the Perl 6 'slurp' built-in
 License:	Artistic
 Group:		Development/Perl
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://www.cpan.org/modules/by-module/Perl6/Perl6-Slurp-%{upstream_version}.tar.gz
 Patch0:		Perl6-Slurp-0.03-fix-tests.patch
 
